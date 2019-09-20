@@ -1,0 +1,15 @@
+---
+#####################################
+#Playbook of Hosts linux file update#
+#####################################
+- name: Transfer the script
+  copy:
+    src: /etc/ansible/roles/mount-efs-linux/files/
+    dest: /tmp
+    mode: 0755
+
+- name: Execute the script
+  shell: sudo cd /tmp && sudo sh /tmp/mount-efs-linux.sh
+
+- name: Ansible delete multiple file example
+  shell: sudo rm -rf /tmp/mount-efs-linux.sh
